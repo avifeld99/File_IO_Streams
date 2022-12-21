@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -16,7 +17,8 @@ public class OpdrachtSecret {
 
     public static void writeSecretFile() {
 
-        Path path = Path.of("../../Secret_Folder/Secret_Message.txt");
+        Path path = Path.of("./Secret_Folder/Secret_Message.txt");
+        // of "../../Secret_Folder/Secret_Message.txt"
 
         try {
             Files.createDirectories(path.getParent());
@@ -31,20 +33,12 @@ public class OpdrachtSecret {
         catch (IOException ioe) {
             ioe.printStackTrace();
         }
-
-        /*try {
-            BufferedImage image;
-            image = ImageIO.read(new File("https://worldstories.org.uk/content/book/262/__picture_9352.jpg"));
-        }
-        catch (IOException ioe) {
-            ioe.printStackTrace();
-        }*/
-
     }
 
     public static void addSecretImage() {
 
-        Path path = Path.of("../../Secret_Folder/Secret_Picture.jpg");
+        Path path = Path.of("./Secret_Folder/Secret_Picture.jpg");
+        // of "../../Secret_Folder/Secret_Picture.jpg"
 
         try {
             Files.createDirectories(path.getParent());
@@ -56,9 +50,10 @@ public class OpdrachtSecret {
         BufferedImage image;
         File file;
         try {
-            file = new File("https://worldstories.org.uk/content/book/262/__picture_9352.jpg");
-            image = ImageIO.read(file);
+            file = path.toFile();
+            image = ImageIO.read(new URL("https://worldstories.org.uk/content/book/262/__picture_9352.jpg"));
             ImageIO.write(image, "jpg", file);
+            //System.out.println(image);
         }
         catch (IOException ioe) {
             ioe.printStackTrace();
