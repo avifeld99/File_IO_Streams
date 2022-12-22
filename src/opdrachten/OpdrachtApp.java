@@ -14,8 +14,8 @@ public class OpdrachtApp {
 
         //ByteStreams.WriteWithByte();
 
-        OpdrachtSecret.writeSecretFile();
+       //OpdrachtSecret.writeSecretFile();
 
-        OpdrachtSecret.addSecretImage();
+        //OpdrachtSecret.addSecretImage();
     }
 }
